@@ -1,31 +1,63 @@
 {
   "company": {
-    "cin": "",
-    "name": "",
-    "address": "",
-    "email": ""
+    "cin": "U74999KA2016PTC095981",
+    "name": "ALUPA FOODS PRIVATE LIMITED",
+    "address": "DHANYALAXMI RICE MILL,\r5-110A, PUTTUR,\rUDUPI\rUdupi\rKarnataka\r576105",
+    "email": "mail@alupafoods.in"
   },
   "auditor_info": {
-    "name": "",
-    "pan": "",
-    "membership_no": "",
-    "address": "",
-    "email": "",
+    "name": "MALLYA & MALLYA",
+    "pan": "AABFM8893Q",
+    "membership_no": "001955S",
+    "address": "29/2, 1st Floor, Parijatha Complex Race Course Road",
+    "email": "mallyaandmallya@gmail.com",
     "appointment_period": {
-      "to": ""
+      "from": "01/04/2022",
+      "to": "31/03/2027"
     },
-    "years_applicable": ""
+    "years_applicable": "5"
   },
   "joint_auditor": false,
   "within_limit_20": false,
-  "appointment_in_agm_date": "",
-  "date_of_appointment": "",
-  "previous_appointments": [],
+  "appointment_in_agm_date": "26/09/2022",
+  "date_of_appointment": "26/09/2022",
+  "previous_appointments": [
+    {
+      "auditor": "AUDF",
+      "start_date": "24/08/2016",
+      "end_date": "31/03/2017"
+    },
+    {
+      "auditor": "AUDF",
+      "start_date": "01/04/2017",
+      "end_date": "31/03/2018"
+    },
+    {
+      "auditor": "AUDF",
+      "start_date": "01/04/2018",
+      "end_date": "31/03/2019"
+    },
+    {
+      "auditor": "AUDF",
+      "start_date": "01/04/2019",
+      "end_date": "31/03/2020"
+    },
+    {
+      "auditor": "AUDF",
+      "start_date": "01/04/2020",
+      "end_date": "31/03/2021"
+    },
+    {
+      "auditor": "AUDF",
+      "start_date": "01/04/2021",
+      "end_date": "31/03/2022"
+    }
+  ],
   "declaration": {
-    "din_or_pan": "",
-    "designation": "",
-    "resolution_no": "",
-    "date": ""
+    "din_or_pan": "07579495",
+    "designation": "DIRT",
+    "resolution_no": "007",
+    "date": "29/08/2022"
   },
   "attachments": [
     "Consent signed.pdf",
