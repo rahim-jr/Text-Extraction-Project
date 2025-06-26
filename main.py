@@ -89,10 +89,45 @@ def save_json(data, output_path):
         json.dump(data, f, indent=2, ensure_ascii=False)
     print(f"JSON saved to {output_path}")
 
+def extract_pdf_attachments(pdf_path: Path, output_dir: Path) -> list:
+    """Extract embedded file attachments from a PDF using PyMuPDF (fitz), avoiding Unicode errors.
+    Returns a list of extracted filenames."""
+    extracted_files = []
+    with fitz.open(pdf_path) as doc:
+        output_dir = Path(output_dir)
+        output_dir.mkdir(parents=True, exist_ok=True)
+        count = 0
+        for i in range(doc.embfile_count()):
+            try:
+                info = doc.embfile_info(i)
+                fname = info.get("filename", f"attachment_{i}")
+            except Exception as e:
+                print(f"Warning: Could not read filename for attachment {i}: {e}")
+                fname = f"attachment_{i}"
+            try:
+                fdata = doc.embfile_get(i)
+                out_path = output_dir / fname
+                with open(out_path, "wb") as f:
+                    f.write(fdata)
+                print(f"Extracted attachment: {out_path}")
+                extracted_files.append(str(out_path))
+                count += 1
+            except Exception as e:
+                print(f"Error extracting attachment {i}: {e}")
+        if count == 0:
+            print("No embedded attachments found in the PDF.")
+        else:
+            print(f"Total attachments extracted: {count}")
+    return extracted_files
+
 def main():
     if not INPUT_PATH.exists():
         print(f"PDF not found at: {INPUT_PATH}")
         return
+
+    # Extract PDF attachments (embedded files)
+    print("Extracting embedded attachments from PDF...")
+    attachment_files = extract_pdf_attachments(INPUT_PATH, OUTPUT_PATH.parent / "attachments")
 
     print("Loading PDF fields...")
     fields = load_pdf_fields(INPUT_PATH)
@@ -110,10 +145,14 @@ def main():
     print("Structuring extracted data...")
     structured_data = extract_structured_data(fields)
 
+    # Optionally add extracted attachment filenames to the output JSON
+    if attachment_files:
+        structured_data["extracted_attachments"] = attachment_files
+
     print("Saving JSON output...")
     save_json(structured_data, OUTPUT_PATH)
 
-    json_path = Path("./output_json/output.json")  # Make sure this file exists
+    json_path = OUTPUT_PATH  # Use the same output path
     data = load_data(json_path)
 
     print("Generating AI summary...")
@@ -123,7 +162,7 @@ def main():
     print(summary)
     
     # Save the summary to a text file
-    summary_path = Path("./output_json/summary.txt")
+    summary_path = OUTPUT_PATH.parent / "summary.txt"
     with open(summary_path, "w", encoding="utf-8") as f:
         f.write(summary)
     print(f"\n📝 Summary saved to: {summary_path}")
