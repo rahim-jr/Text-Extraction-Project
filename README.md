@@ -59,14 +59,15 @@ python main.py
 
 ## Project Structure
 
-```
-main.py
-requirements.txt
-genrative_ai_script/
-    __init__.py
-    summary_generator.py
-input_pdfs/
-output_json/
+```tree
+.
+├── main.py
+├── requirements.txt
+├── generative_ai_script/
+│   ├── __init__.py
+│   └── summary_generator.py
+├── input_pdfs/
+└── output_json/
 ```
 
 ## Notes
