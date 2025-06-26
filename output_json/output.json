@@ -64,5 +64,11 @@
     "Resolution for appointment of Auditor Signed.pdf",
     "Intimation Letter Signed.pdf",
     "Acceptance signed.pdf"
+  ],
+  "extracted_attachments": [
+    "output_json/attachments/Intimation Letter Signed.pdf",
+    "output_json/attachments/Consent signed.pdf",
+    "output_json/attachments/Resolution for appointment of Auditor Signed.pdf",
+    "output_json/attachments/attachment_3"
   ]
 }
