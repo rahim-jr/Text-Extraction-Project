@@ -1,0 +1,36 @@
+{
+  "company": {
+    "cin": "",
+    "name": "",
+    "address": "",
+    "email": ""
+  },
+  "auditor_info": {
+    "name": "",
+    "pan": "",
+    "membership_no": "",
+    "address": "",
+    "email": "",
+    "appointment_period": {
+      "to": ""
+    },
+    "years_applicable": ""
+  },
+  "joint_auditor": false,
+  "within_limit_20": false,
+  "appointment_in_agm_date": "",
+  "date_of_appointment": "",
+  "previous_appointments": [],
+  "declaration": {
+    "din_or_pan": "",
+    "designation": "",
+    "resolution_no": "",
+    "date": ""
+  },
+  "attachments": [
+    "Consent signed.pdf",
+    "Resolution for appointment of Auditor Signed.pdf",
+    "Intimation Letter Signed.pdf",
+    "Acceptance signed.pdf"
+  ]
+}
