@@ -2,6 +2,7 @@ import os
 import json
 from pathlib import Path
 import fitz
+from genrative_ai_script.summary_generator import load_data , generate_ai_summary 
 
 #input and output path
 INPUT_PATH = Path("./input_pdfs/Form ADT-1-29092023_signed.pdf")
@@ -112,7 +113,20 @@ def main():
     print("Saving JSON output...")
     save_json(structured_data, OUTPUT_PATH)
 
+    json_path = Path("./output_json/output.json")  # Make sure this file exists
+    data = load_data(json_path)
 
+    print("Generating AI summary...")
+    summary = generate_ai_summary(data)
+
+    print("\nAI Summary:\n")
+    print(summary)
+    
+    # Save the summary to a text file
+    summary_path = Path("./output_json/summary.txt")
+    with open(summary_path, "w", encoding="utf-8") as f:
+        f.write(summary)
+    print(f"\n📝 Summary saved to: {summary_path}")
+    
 if __name__ == "__main__":
     main()
-    
