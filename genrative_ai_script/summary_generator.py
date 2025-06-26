@@ -34,8 +34,9 @@ def generate_ai_summary(data: dict) -> str:
 
     prompt = (
         "You are a corporate compliance assistant. "
-        "Given the following JSON extracted from an Indian ROC Form ADT-1 filing, generate a professional, concise summary "
-        "explaining the appointment of the auditor in natural language.\n\n"
+        "Given the following JSON extracted from an Indian ROC Form ADT-1 filing, generate a professional, concise summary. "
+        "The summary should explain the appointment of the auditor, highlight any key information (such as auditor details, appointment dates, term, and auditor firm), and mention if any attachments are included. "
+        "Ensure the tone is formal and suitable for corporate reporting or board communication.\n\n"
         f"{json.dumps(data, indent=2)}\n\n"
         "Summary:"
     )
